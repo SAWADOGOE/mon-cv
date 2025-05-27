@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAWADOGO Emmanuel - Développeur Full Stack</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">ES</div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar">ES</div>
+            <h1>SAWADOGO Emmanuel</h1>
+            <p class="subtitle">Développeur Full Stack Spring Boot / React</p>
+            <p class="description">
+                Passionné par le développement web moderne, je crée des applications robustes et performantes 
+                en combinant l'expertise backend Java Spring Boot avec les interfaces utilisateur React dynamiques.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Me contacter
+                </a>
+                <a href="#" class="btn btn-outline" onclick="downloadCV()">
+                    <i class="fas fa-download"></i>
+                    Télécharger CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+                <p>Développeur passionné avec une expertise solide en développement full stack</p>
+            </div>
+            <div class="about-content">
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Années d'expérience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Projets réalisés</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Technologies maîtrisées</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Satisfaction client</div>
+                    </div>
+                </div>
+                <div class="about-info">
+                    <h3>Mon parcours</h3>
+                    <p>
+                        Développeur full stack spécialisé dans l'écosystème Java Spring Boot et React, 
+                        je conçois et développe des applications web modernes, sécurisées et performantes. 
+                        Mon expertise couvre l'architecture backend robuste avec Spring Boot, 
+                        la création d'APIs RESTful, et le développement d'interfaces utilisateur 
+                        interactives avec React.
+                    </p>
+                    <p>
+                        Passionné par les bonnes pratiques de développement, j'accorde une attention 
+                        particulière à la qualité du code, aux tests automatisés, et à l'optimisation 
+                        des performances. Mon approche méthodique me permet de livrer des solutions 
+                        techniques adaptées aux besoins métier.
+                    </p>
+                    <p>
+                        Toujours en veille technologique, je m'efforce de rester à jour avec les 
+                        dernières évolutions du développement web pour proposer des solutions innovantes 
+                        et maintenir une expertise technique de pointe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galerie Photos</h2>
+                <p>Quelques moments de mon parcours professionnel</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/IMG_20231212_085051_425~2[1959].jpg" alt="Photo professionnelle 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/IMG_20250221_173831_016.jpg" alt="Photo professionnelle 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/IMG_20250516_170543_596.jpg" alt="Photo professionnelle 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/photo4.jpg" alt="Photo professionnelle 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev" onclick="changeImage(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next" onclick="changeImage(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img src="" alt="Image en plein écran" class="lightbox-image">
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compétences techniques</h2>
+                <p>Technologies et outils que je maîtrise pour créer des applications exceptionnelles</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">Spring Data JPA</span>
+                        <span class="skill-tag">Hibernate</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Microservices</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript ES6+</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Redux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Base de données</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">H2</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Outils & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Expérience professionnelle</h2>
+                <p>Mon parcours professionnel et les projets marquants</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Développeur Full Stack Senior</h3>
+                        <div class="timeline-date">2022 - Présent</div>
+                        <p>
+                            Développement d'applications web complexes avec Spring Boot et React. 
+                            Architecture microservices, optimisation des performances, 
+                            et encadrement d'équipe junior.
+                        </p>
+                        <ul>
+                            <li>Migration vers une architecture microservices</li>
+                            <li>Amélioration des performances de 40%</li>
+                            <li>Mise en place de pipelines CI/CD</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Développeur Full Stack</h3>
+                        <div class="timeline-date">2021 - 2022</div>
+                        <p>
+                            Développement d'applications e-commerce avec Spring Boot et React. 
+                            Intégration de systèmes de paiement, gestion des stocks, 
+                            et interface d'administration.
+                        </p>
+                        <ul>
+                            <li>Développement d'un CRM complet</li>
+                            <li>Intégration APIs tierces</li>
+                            <li>Tests automatisés avec JUnit</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Développeur Java Junior</h3>
+                        <div class="timeline-date">2020 - 2021</div>
+                        <p>
+                            Premiers pas dans le développement professionnel. 
+                            Apprentissage de Spring Boot, développement d'APIs REST, 
+                            et collaboration en équipe agile.
+                        </p>
+                        <ul>
+                            <li>Développement d'APIs REST</li>
+                            <li>Maintenance applications existantes</li>
+                            <li>Formation aux bonnes pratiques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Contactez-moi</h2>
+                <p style="color: rgba(255,255,255,0.8);">
+                    Discutons de vos projets et de la façon dont je peux vous aider
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informations de contact</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>emmanuel.sawadogo@email.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+33 X XX XX XX XX</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>France</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Disponible du lundi au vendredi</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html> 
